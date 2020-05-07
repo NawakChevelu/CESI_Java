@@ -25,18 +25,21 @@ public class CompteCourant {
         this.numero = numero;
         this.intitule = intitule;
         if(solde < 0)
-            this.solde = solde;
+            this.solde = 0;
         else
             this.solde = solde;
         this.montantDecouvertAutorise = montantDecouvertAutorise;
     }
 
     public void crediter(double pMontant) {
-        this.solde += pMontant;
+        if(pMontant > 0)
+            this.solde += pMontant;
+        else
+            System.out.println("Impossibilité de créditer un montant négatif");
     }
     
     public void debiter(double pMontant) {
-        if((this.solde - pMontant) < this.montantDecouvertAutorise) {
+        if((this.solde - pMontant) <= this.montantDecouvertAutorise) {
             System.out.println("Solde insufisant pour débit");
         } else {
             this.solde -= pMontant;
@@ -46,7 +49,12 @@ public class CompteCourant {
     @Override
     public String toString() {
         
-        return null;  
+        return "CompteCourant{" +
+                "numero : '" + this.numero + '\'' + 
+                ", intitule : '" + this.intitule + '\'' + 
+                ", solde : '" + this.solde + '\'' + 
+                ", montantDecouvertAutorise : '" + this.montantDecouvertAutorise + '\'' +
+                '}';  
     }
 
     public String getNumero() {
