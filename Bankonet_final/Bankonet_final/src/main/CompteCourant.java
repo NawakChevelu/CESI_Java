@@ -9,10 +9,10 @@ package main;
  *
  * @author NawakChevelu
  */
-public class CompteCourant {
-    private String numero;
-    private String intitule;
-    private double solde;
+public class CompteCourant extends Compte{
+    //private String numero;
+    //private String intitule;
+    //private double solde;
     private double montantDecouvertAutorise;
     static int nbComptesCourants;
     
